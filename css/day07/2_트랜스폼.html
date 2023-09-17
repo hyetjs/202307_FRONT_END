@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../day06/css/reset.css" />
+    <style>
+      body {
+        /* height: 200vh; */
+        display: flex; /* absolute를 주면 스크롤 시 모달 배경이 따라오지 않습니다 */
+        flex-direction: column;
+        place-content: center center; /* align-content, justify-content를 한번에 다룰 수 있는 속성 */
+        align-items: center;
+        gap: 16px;
+      }
+
+      div {
+        width: 300px;
+        height: 200px;
+        border: 1px solid #000;
+        transition: all 2s ease;
+      }
+
+      #scale:hover {
+        border: 1px dashed red;
+        transform: scale(1.5); /* 1.5배 */
+        transform: scale(0.5); /* 0.5배 */
+        transform: scaleX(-1); /* 좌우 반전 */
+        transform: scaleY(
+          -1
+        ); /* 상하 반전 -> height이 커지면 위에서 아래로 커지지만, 반전 시키면 아래에서 위로 커지는 것도 가능 */
+      }
+
+      #translate:hover {
+        transform: translateX(50px);
+        /* 배너 캐러셀 */
+      }
+
+      /* .modal-wrapper{
+        border: none;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.3);
+      } */
+
+      /* .modal-container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%); 
+      } */
+      /* 
+        (x, y) 해당 요소의 가로와 세로 길이의 50% 만큼 (-) 위로, 왼쪽으로 이동
+        translate에 %가 들어가면 해당 요소 크기 기준 
+        */
+
+      #rotate:hover {
+        transform: rotate(90deg);
+        transform: rotate(180deg);
+        transform: rotateY(180deg); /* 좌우 반전, transition과 함께 사용하면 flip 효과(카드를 뒤집는 효과)로 사용가능*/
+        transform: perspective(50px) rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scale">scale</div>
+    <div id="translate"></div>
+    <div id="rotate">rotate</div>
+    <!-- <div class="modal-wrapper">
+        <div class="modal-container"></div>
+    </div> -->
+    <!-- <dialog></dialog> 참고용 -->
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        h1{
+            background-color: yellow;
+            color: green;
+        }
+        /* 
+            모든 h1이 선택되었다 -> 전부다 바꿨을까? -> 내부보다 인라인이 우선순위이기 때문에 1,2번째만 변화
+            css 속성이 겹치는 경우 우선 순위가 같다면 나중에 나온 css가 덮어 씌워진다, 대체 x
+        */
+    </style>
+</head>
+<body>
+    <h1>외부 스타일링</h1>
+    <h1>내부 스타일링</h1>
+    <h1 style="background-color: black; color: red;">인라인 스타일링</h1>
+</body>
+</html>

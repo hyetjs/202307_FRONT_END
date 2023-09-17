@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid #000;
+        }
+        .padding{
+            padding: 20px;
+            padding-left: 16px;
+            /* left만 적용? 바뀔지? ==> 수정 부분만 덮어씌워진다 */
+        }
+        input{
+            padding: 0 16px;
+        }
+        .margin{
+            margin: 20px;
+            margin-left: 16px;
+        }
+        .container{
+            display: flex;
+        }
+        .container > div {
+            margin-right: 8px;
+        }
+        main{
+            width: 1440px;
+            height: 100vh;
+            background-color: red;
+            margin: 0 auto;
+            /* -> 위/아래 margin 0, 왼쪽/오른쪽 자동 */
+            /* 부모 요소를 기준으로 가운데로 오도록 */
+        }
+    </style>
+</head>
+<body>
+    <h2>패딩마진</h2>
+    <div class="padding">패딩</div>
+    <input type="text" />
+    <div class="margin">마진</div>
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <main></main>
+</body>
+</html>

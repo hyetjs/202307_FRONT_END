@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #header{
+            background-color: red;
+        }
+        #container{
+            background-color: green;
+        }
+        #footer{
+            background-color: blue;
+        }
+        /* 
+            class 선택자 가지고 있는 특성
+            class 복수 부여가 가능하다, 즉 하나의 요소에 복수의 클래스 부여가 가능
+            id가 class보다 우선 순위가 높기 때문에, 향후 css변경에 있어 어려움이 있을 수 있음
+        */
+        .small-font{
+            font-size: 12px;
+            /* default 16px */
+        }
+        .big-font{
+            font-size: 48px ;
+        }
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>id 선택자</h2>
+    <div id="header">header</div>
+    <div id="container">container</div>
+    <div id="footer">footer</div>
+    <hr/>
+    <!-- 직선 태그 -->
+    <h2>class 선택자</h2>
+    <p class="small-font">
+        클래스 선택자는 특정 집단의
+        <span class="big-font active">여러 요소를 한번</span>에 선택
+    </p>
+    <p class="big-font">
+        특정 집단을<span class="small-font">클래스</span>라고 한다
+    </p>
+</body>
+</html>

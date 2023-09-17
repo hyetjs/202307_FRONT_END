@@ -1,0 +1,64 @@
+/** main css */
+main{
+    height: calc(100vh - 220px);
+}
+
+main > form{
+    width: 300px;
+    height: 240px;
+    border: 1px solid gray;
+    padding: 16px;
+    flex-direction: column;
+}
+
+main > form > p{
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-self: stretch;
+    margin-bottom: 8px;
+    /* 
+        부모가 부여한 center 옵션을 무시하고
+        스스로 부모만큼 크기가 커진 경우
+    */
+}
+
+input{
+    border-radius: 10px;
+}
+
+main > form > .button-wrapper{
+    width: 100%;
+    padding: 0 16px;
+}
+
+main > form > .button-wrapper > button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+main > form > .button-wrapper > button:hover {
+    opacity: 0.7;
+}
+
+main > form > .button-wrapper > p{
+    text-align: center;
+    margin-top: 80px;
+}
+
+main > form > .button-wrapper > p > span {
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+
+

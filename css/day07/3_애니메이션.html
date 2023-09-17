@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .arrow {
+        position: absolute;
+        top: 50%;
+        right: 32px;
+        transform: translateY(-50%);
+        font-size: 32px;
+        animation: modifyArrow 0.7s linear infinite;
+      }
+
+      @keyframes modifyArrow{
+        50% {
+            transform: translate(16px, -50%);
+            /* 중복으로 인해 대체 되니까 -50%를 유지하면서 16px 이동 반복  */
+        }
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="arrow">&gt;</div>
+  </body>
+</html>

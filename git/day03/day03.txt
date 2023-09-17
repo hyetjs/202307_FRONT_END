@@ -1,0 +1,48 @@
+-----
+로컬저장소 원격저장소 생성 및 연결
+Init file 올리기
+Branch 생성 및 팀원들이랑 동시에 작업
+내 작업 완료 후 허락받기(pull request)
+Pull request 시 필요한 부분 review 요청 
+Reviewer의code review 
+수정 상황이 있으면 comment, 없으면 approve함
+수정 상황에 맞게(review) 수정
+다시 review 요청 하고 review 가 approved됨
+Approved된 걸 확인하면 본인이 merge
+------
+작업 -> 허락 -> 리뷰 -> 수정 -> 재허락 -> 허락o -> 합치기
+------
+1. 협업자의 개발이 완료가 되었고 merge
+2. 내가 개발이 아직 안 끝난 상황
+3. 나의 작업이 종료
+4. 종료된 작업을 main pull request
+5. 충돌 상황 (협업자와 내가 동일한 파일을 수정)
+6. 충돌 상황을 해결 -> merge
+------
+hosting -> 외부에 공개
+1) 닷홈 + FTP (구식) - 퍼블리셔
+2) github pages, 정적 웹사이트의 호스팅 (html, css, js) -> 퍼블리싱
+------
+3) react, next, vue -> frontend framework
+------
+최소 2주안에 add, commit, pull, push, checkout -> 익숙
+순서와 플로우는 반드시 이해
+준비 -> 로컬 저장 -> 동기화 -> 브랜치 생성 및 이동 -> 원격 저장
+------
+
+git hub 충돌 해결 방법
+
+1. github pull request 안에서 직접 수동으로 해결
+(필요한 코드와 필요하지 않은 코드를 구분, 해결은 남이 하는게 아니라 내가, 필요하면 질문)
+
+2. 그러나 1의 경우 수정할 수 있는데는 한계가 있기 때문에 git 명령어로 해결
+1) merge할 branch로 이동 (git checkout main)
+2) main을 동기화 (git pull origin main)
+3) 작업 branch로 복귀 (git checkout feat/sign-up)
+4) git merge 브랜치명 (git merge main)
+5) 충돌 발생! 충돌을 해결한 후 add / commit
+6) git push origin feat/sign-up
+//6) git merge --continue
+
+=> 간단한 수정은 1로하는 겨우가 많으나, 복잡한 충돌의 경우 2로 수정해야한다
+   아예 지원을 안할 수도있고 GUI를 깔끔하게 제공하는 vs코드등 에디터 틀이 존재

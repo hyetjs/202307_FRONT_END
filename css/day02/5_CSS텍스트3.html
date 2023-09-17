@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        p{
+            border: 1px solid #f00;
+            width: 600px;
+            padding: 10px;
+        }
+        #deco{
+            /* text-decoration: line-through; */
+            /* text-decoration: overline; */
+            /* text-decoration: underline; */
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        #over{
+            white-space: nowrap; /* default wrap */
+            overflow: hidden;
+            /* 해당 요소의 크기보다 넘어가는 것이 있다면 보이지 않음 */
+            text-overflow: ellipsis;
+            /* 말줄임표, 이를 위해선 반드시 nowrap, overflow가 hidden 이어야함 */
+        }
+        #over:hover{
+            overflow: visible;
+            /* 넘어간 요소가 보여지는 상태 */
+        }
+    </style>
+  </head>
+  <body>
+    <h2>text-decoration</h2>
+    <p id="deco">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident rerum
+      quis fugiat doloribus cupiditate adipisci necessitatibus. Cupiditate
+      labore, illum explicabo nostrum cum enim voluptatum. Distinctio aspernatur
+      odio dolorum sint alias.
+    </p>
+    <hr />
+    <h2>text-overflow</h2>
+    <p id="over">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+      recusandae odit vitae labore, ratione sequi. Beatae, consectetur hic
+      explicabo recusandae deleniti necessitatibus ab quam, perferendis sit illo
+      quis harum modi.
+    </p>
+  </body>
+</html>

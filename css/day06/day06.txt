@@ -1,0 +1,62 @@
+position
+    * absolute
+
+    * fixed
+
+    * sticky
+
+media query
+    단말기의 유형(데스크탑(s,m,l), 태블릿(s,m,l), 모바일(s,m,l))에 따라
+    해상도는 모두 다름, 해당 해상도에 맞게 화면을 구성
+
+    => 해상도에 따라 화면이 다르게 보이거나 CSS가 깨질 수 있기 때문이다
+
+    ex) @media 유형 (속성: 값) and (속성: 값) ... {
+        ... CSS 속성
+    }
+
+    유형
+        all (모든 장치)
+        * screen (화면)
+        print (인쇄 결과물 미리보기)
+        speech (음성 합성 장치)
+                        ~1680px 1680(min)
+    ex) @media screen (max-width:1680px){
+        ... CSS 속성
+    }
+
+grid layout
+
+    표 형태의 레이아웃
+
+    내가 원하는 크기나 위치로 요소를 옮기거나 수정할 수 있다는 장점
+    flex의 경우 요소의 흐름대로(순서대로) 요소가 수직, 수평정렬 되는데 반해
+    grid 레이아웃은 내가 원하는 위치로 순서와 상관없이 변경이 가능
+
+    따라서, 반응형 웹 제작시, css 변동이 급격하게 일어나는 경우
+    flex보다는 grid 레이아웃 사용
+
+    display: grid
+    grid-template-columns : 열을 몇개 만들건지 -> th/td
+    grid-template-rows : 행을 몇개 만들건지 -> tr
+    gap
+    row-gap
+    column-gap
+
+    grid-template-areas : 이름으로 행과 열을 표형태로 직접 정의
+    "header header header
+    sidebar main main
+    footer footer footer
+
+    align-items
+    justify-contents
+
+transform, transition
+
+animation
+
+-----------------------------------------------------------------------------80~90%
+
+동료 학습 -> 퍼블리싱 프로젝트(클론 코딩) (3주)
+개인 학습 -> 자주 사용하는 페이지 1가지 화면만 구현해오기
+깃, 호스팅(무료, (닷홈, 깃허브페이지) -> 정적 페이지 배포)

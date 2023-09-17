@@ -1,0 +1,62 @@
+/** root */
+:root{
+    --primary-color:rgb(104,217,255);
+    --gray-100: #e5e5e5;
+    --gray-200: #999999;
+    --red-100: #f00000;
+}
+
+/** header */
+header{
+    height: 60px;
+    background-color: var(--primary-color);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* justify-content: space-evenly;
+    justify-content: space-around; */
+    padding: 0 16px;
+}
+
+header > ul {
+    display: flex;
+}
+
+header > ul > li:first-of-type::after{
+    content: "|";
+    margin: 0 4px;
+}
+
+header > ul > li:hover{
+    color: red;
+}
+
+/* 
+    space-between
+    첫 시작 요소와 끝 요소를 각 * 양끝에 붙이고 *
+    부모 요소 기준 동일한 여백으로 나눈 것
+
+    space-evenly
+    각 요소를 부모 요소 기준 * 동일 여백으로 * 나눈 것
+
+    space-around
+    각 요소 * 주변에(왼쪽,오른쪽) * 동일한 여백으로 나눈 것
+
+    => flex 요소의 각 요소를 일정 크기만큼 떨어뜨려 놓을 때
+*/
+
+/** footer */
+footer{
+    height: 160px;
+    background-color: black;
+    color: #fff;
+}
+
+/** align */
+/* css의 재사용을 위하여 공통되는 css를 따로 분리 */
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

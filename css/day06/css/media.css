@@ -1,0 +1,89 @@
+header{
+    height: 60px;
+    background-color: red;
+}
+
+main{
+    display: flex;
+    height: 100vh;
+    /* 
+        viewport => 사용자가 보고 있는 화면
+        100vh => 사용자가 보고 있는 높이를 꽉 채운다
+        (화면은 가득 채운 높이)
+    */
+}
+
+main > aside{
+    height: 100%;
+    width: 480px;
+    background-color: yellow;
+}
+
+footer{
+    height: 160px;
+    padding: 32px;
+    color: #fff;
+    background-color: #000;
+}
+
+nav{
+    display: none;
+    height: 40px;
+    background-color: green;
+}
+
+section{
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+section > div{
+    flex-basis: 280px;
+    border: 1px solid #000;
+}
+
+/* 
+    max만을 사용했을 때는
+    순서는 크기가 큰 순서대로 배치 덮어씌워짐
+
+    min - max
+    @media screen and (min-width:769px) and (max-width:1280px)
+
+    size
+    mobile 345 ~ 767 (s,m,l)
+    tablet 768 ~ 1279 (s,m,l)
+    desktop 1280~ (s,m,l)
+
+*/
+
+@media screen and (max-width: 1280px) {
+    main > aside {
+        width: 280px
+    }
+
+    footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width:768px) {
+    section{
+        display: flex;
+        justify-content: center;
+    }
+    section > div{
+        flex-basis: 380px;
+    }
+    aside{
+        display: none;
+    }
+    nav{
+        display: block;
+    }
+}
+

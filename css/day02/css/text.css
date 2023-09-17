@@ -1,0 +1,53 @@
+p{
+    /* 00 => 0, FF => F, #000000 => #000 */
+    border: 1px solid #000;
+    padding: 12px;
+    margin: 20px;
+    /* px값은 4px 단위로 입력하는 것이 좋습니다 */
+}
+
+#left{
+    text-align: left;
+}
+
+#center{
+    text-align: center;
+}
+
+#right{
+    text-align: right;
+}
+
+#justify{
+    text-align: justify;
+    /* 양쪽 정렬, 띄어쓰기와 관계 없이 양쪽에 붙어서 정렬, 단어 사이의 간격이 늘어남 */
+}
+
+/* 들여쓰기 */
+#indent-1{
+    text-indent: 20px;
+}
+
+#indent-2{
+    text-indent: 10%;
+    /* 앞으로 css 단위에서 %가 보이면 기준이 존재한다 (부모 요소) */
+}
+
+/* 줄간 */
+#small{
+    line-height: 0.7;
+    /* default value 1 */
+}
+
+#big{
+    line-height: 3;
+}
+
+#px{
+    line-height: 16px;
+}
+
+#per{
+    line-height: 50%;
+    /* default value 100% */
+}

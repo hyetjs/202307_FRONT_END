@@ -1,0 +1,8 @@
+/* 
+css 파일의 확장자면 반드시 css로 끝나야만 해당 파일이 css 문법을 이해할 수 있음
+*/
+
+h1 {
+    background-color: blue;
+    color: white;
+}

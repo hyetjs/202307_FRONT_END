@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.flex{
+    width: 800px;
+    height: 300px;
+    background-color: blue;
+    color: #fff;
+    /* 
+        CSS의 상속
+        폰트나, 색상 관련된 속성은 자식으로 상속
+    */
+    display: flex;
+    /* 정렬하고 싶은 자식의 부모에게 주는 속성 */
+}
+
+ul > li {
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid #000;
+    color: #000;
+    /* flex-basis: 200px; */
+    /* display flex의 자식 요소의 크기 */
+    /* 자식 요소의 크기의 총합은 부모 요소의 크기를 넘을 수 없음 */
+    /* 800px / 5 -> 160px */
+    min-width: 800px;
+    /* 부모 요소 크기 무시하고 크기를 줄 수 있음 */
+    max-width: 800px;
+    /* max? 크기가 동적(다이나믹)일 때 inline, inline-block
+       더이상 늘어나지 않게 하기 위한 속성
+    */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 
+        flex는 블럭 자식요소의 수평 정렬을 위해서만 사용하는 것이 아니라
+        안에든 컨텐츠(내용물)의 가로 세로 가운데 정렬 유용
+        position: absolute
+    */
+}
+
+ul.flex{
+    /* display: flex; 상단에서 선언 생략 */
+    /* 지금부터 사용하는 속성 display: flex */
+    justify-content: center;
+    justify-content: flex-start;
+    justify-content: end;
+    align-items: center;
+    align-items: flex-start;
+    align-items: flex-end;
+    
+}
+
+div.flex{
+    flex-direction: column;
+    justify-content: center; /* => align-items(수직) */
+    align-items: center; /* => justify-content(수평) */
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* 
+        부모 요소 크기만큼 크기를 늘리려는 stretch 때문에
+        여백이 생김, 여백이 싫다면 -> 부모 요소 크기를 없애고
+        패딩, 마진, gap등을 활용하여 부모 요소의 크기를 동적으로(변화가 쉬운)
+    */
+}
+
+div.flex > div {
+    width: 300px;
+    background-color: black;
+    /* text-align: center */
+    display: flex;
+    justify-content: center;
+}
+
+/* 
+    display : flex => ?
+        1. 블록 태그를 인라인-블록 태그처럼 수평 정렬
+        2. 가로 세로 가운데 정렬
+        3. 4단 배열, 3단 배열과 같은 특정 요소의 줄바꿈
+
+    flex-shrink
+        부모 요소크기를 자식요소 크기가 벗어났을 때
+        부모 요소 크기만큼 크기가 줄어드는데 그 줄어드는 비율을
+
+        다른 요소의 shrink가 모두 2라면
+        1은 2배
+
+        부모 요소 밑의 자식요소의 shrink의 값을 합산하여 비율로 연산
+
+    flex-grow
+        자식 요소 크기의 합을 부모 요소 크기만큼 길이를 늘립니다.
+        늘릴 때 자식 요소들의 모든 flex-grow의 값을 더하고
+        이에 따라 비율을 분배
+
+        => 부모 크기에 맞춰 비율대로 크기를 늘릴 떄
+
+        ---> 수직 수평 정렬을 자유롭게 할 수 있어야한다.
+*/

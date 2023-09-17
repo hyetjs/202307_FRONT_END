@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        ul a {
+            text-decoration: none;
+        }
+        /* 
+            몇 번째 줄이 선택되었을까요?
+            네이버, 다음, 구글
+
+            중첩 deps가 깊을 수록 우선순위가 높다 (deps는 몇번타고갔냐)
+                ul a
+                ul > li > a 우선 순위가 더 높다
+            지정이 더 상세할 수록 우선 순위가 높다
+        */
+        ul > a {
+            color: deeppink;
+        }
+        /* 네이버 */
+
+        ul > li > a {
+            color: cornflowerblue;
+        }
+        /* 다음 */
+
+        ul > li > p > a {
+            color: darkviolet;
+        }
+        /* 구글 */
+
+        ul li a {
+            color: red;
+        }
+        /* 다음,구글
+           자식 자손의 우선순위는 깊이가 제일 중요
+        */
+
+        ul li > p > a {
+            color: blue;
+        }
+        /* 구글 */
+
+    </style>
+  </head>
+  <body>
+    <h2>자식/자손 선택자</h2>
+    <ul>
+      <a href="#">네이버</a>
+      <!-- deeppink -->
+      <li>
+        <a href="#">다음</a>
+        <!-- red -->
+      </li>
+      <li>
+        <p>
+          <a href="#">구글</a>
+          <!-- blue -->
+        </p>
+      </li>
+    </ul>
+  </body>
+</html>

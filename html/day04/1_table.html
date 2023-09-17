@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" align="center">
+        <caption> 게시판 </caption>
+        <thead>
+            <!-- 
+                tr의 갯수 = 행(가로줄 수)
+                첫번째 tr의 th/td의 갯수 = 열(세로줄 수)
+             -->
+            <tr>
+                <th width="100" height="200">번호</th>
+                <!-- th는 td와 달리 자동으로 글자가 중앙 정렬되며, 진하게 -->
+                <th>제목</th>
+                <th>작성자</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">1</td>
+                <td colspan="2">안녕하세요</td>
+            </tr>
+            <tr>
+                
+                <td>반갑습니다</td>
+                <td>최혜선</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

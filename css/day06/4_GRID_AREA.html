@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-wrapper{
+            display: grid;
+            grid-template-columns: 500px 300px 1fr; /* fr == % */
+            /* grid-template-rows: 500px 800px 160px;  */
+            grid-template-areas: 
+            "header header header"
+            "aside main main"
+            "footer footer footer";
+        }
+
+        header{
+            grid-area: header;
+        }
+
+        aside{
+            grid-area: aside;
+        }
+
+        main{
+            grid-area: main; 
+        }
+
+        footer{
+            grid-area: footer;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-wrapper">
+        <header>헤더</header>
+        <aside>사이드</aside>
+        <main>메인</main>
+        <footer>푸터</footer>
+    </div>
+</body>
+</html>

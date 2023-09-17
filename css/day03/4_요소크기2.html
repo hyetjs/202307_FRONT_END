@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            /* width: 100vw; */
+            /* 
+                100vw -> 가로 스크롤이 생길 수 있음
+                100% -> 생략 가능 -> 조건 -> 부모 요소가 화면을 가득 채우고 있는지 확인 -> 생략이 불가능한 경우가 있음
+            */
+            height: 80px;
+            background-color: green;
+        }
+
+        nav {
+            height: 32px;
+            background-color: yellow;
+        }
+
+        main {
+            width: 1680px;
+            margin: 0 auto; /* 가운데 정렬 */
+            height: calc(100vh - 32px -80px);
+            background-color: red;
+        }
+        footer{
+            height: 160px;
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <nav></nav>
+    <main></main>
+    <footer></footer>
+</body>
+</html>

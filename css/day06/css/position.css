@@ -1,0 +1,125 @@
+:root{
+    --red:red;
+    --yellow:yellow;
+    --gray:gray;  
+    --black:black;
+    --green:green; 
+}
+
+header{
+    width: 100%;
+    /* 
+    position fixed 시 
+    뷰포트 기준으로 변환되어
+    width 100%를 지정
+    */
+    height: 60px;
+    background-color: var(--red);
+    position: fixed;
+    z-index: 100;
+    /* position:sticky;
+    top:0; */
+    
+}
+
+section{
+    position: relative;
+    padding-top: 60px;
+    /* 
+        position fixed의 경우
+        가리는 부분이 생김
+        이에 따라 패딩을 통해 내부 여백을 조정
+        해결 방법 -> sticky
+    */
+    height: 50vh;
+    background-color: var(--yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section > div {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: deeppink;
+
+}
+section > div:first-of-type{
+    top: 0;
+    left: 0;
+    /* 
+        position : absolute의 위치 지정 방식은
+        부모 요소 중 가장 가까운 position relative를 
+        기준으로 한다.
+
+        그러나, 부모 요소 중 position relative가 없다면,
+        사용자가 보고 있는 화면의 뷰포트 기준으로 절대 위치가
+        지정된다
+
+
+    */
+}
+section > div:nth-of-type(2){
+    bottom: 10%;
+    right: 15%;
+}
+
+section > div:nth-of-type(3){
+    z-index: 1;
+    /* 
+        default value : 0
+        겹쳐있는 요소의 순서를 지정할 수 있음
+        보통은 100이나 1000단위 등으로 크게 줌
+        => why?
+        z-index 100(101,102)~200~300
+        유지 보수를 위해!
+    */
+}
+
+section > p {
+    height: 300px;
+    background-color: var(--green);
+}
+
+.sidebar {
+    position: fixed;
+    width: 80px;
+    height: 30vh;
+    background-color: var(--gray);
+    top: 10%;
+    right:5%;
+    /* 
+        fixed의 경우 위치를 지정하면 사용자의 뷰포트 화면이 기준
+    */
+}
+
+main{
+    display: flex;
+    height: 300vh;
+}
+
+main > aside{
+    position: sticky;
+    /* 
+        어느 부분에서 fixed로 전환할 것인지를 정할 수 있음
+        top이 0이되었을 때 웹 사이트의 시작부분과 닿았을 때 
+    */
+    /* top: 60px; */
+    top: 0;
+    /* 
+        fixed된 header와 겹치는 부분이 생길 수 있음
+        자바스크립트로 조율, 패딩으로 조율
+    */
+    width: 300px;
+    height: 100vh;
+    background-color: var(--red);
+}
+footer{
+    height: 160px;
+    background-color: var(--black);
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        method
+            백엔드에게 데이터를 전달하는 방식
+            GET
+            POST
+
+            API(Application Programing interface)
+                서버와 서버끼리 데이터를 주고 받을 수 있는 환경 (연결)
+
+            REST API
+                api에 자원을 구분하기 위해 이름을 지어주는 것
+                https://백엔드.com/user/sign-up => 회원가입
+
+                GET, https://백엔드.com/user (조회)
+                POST, https://백엔드.com/user (회원가입)
+
+            GET
+                - 데이터 전송 시 url(주소)에 데이터를 실어서 전달
+                  https://백엔드.com/product/3285 상품번호 3285번 데이터 요청
+                  https://백엔드.com/product?prodId=3285
+
+
+     -->
+    <form action="#" method="GET"> <!-- #=> 백엔드의 회원가입 url 주소 -->
+        <p>
+            <label>이메일</label>
+            <input type="email" placeholder="이메일을 입력해주세요"
+                name="userName"/> <!-- pattrn=""-->
+            <button>중복 검사</button>
+        </p>
+        <p>
+            <label>비밀번호</label>
+            <input type="password" placeholder="비밀번호를 입력해주세요" 
+                name="userPw"/>
+        </p>
+            <button>회원가입</button>
+    </form>
+</body>
+</html>

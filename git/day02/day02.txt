@@ -1,0 +1,49 @@
+cd - 경로 맞추기
+git init - 로컬 저장소 생성
+git hub 원격 저장소(레퍼지토리) 생성
+git remote add 원격저장명 원격저장소주소 - 로컬과 원격 저장소의 연결
+git pull - 원격 저장소, 로컬 저장소 동기화
+-- 문제점, 원격 저장소의 히스토리와 로컬 저장소의 히스토리가 일치하지 않는 문제 
+
+git pull --rebase
+git pull --allow-unrelated-histories
+-- 최초 1회에 한하여 init commit
+폴더 구조(assets/css/js/html), 필요한 설치 파일 모두 설치
+
+git add . -로컬 저장소에 저장하기 위한 파일을 선택(준비)
+git commit -m '커밋제목(header)' -m '커밋내용(body)'
+* 커밋 메세지의 컨벤션을 맞춰서 추적하기 용이하도록 해야한다
+ex) feat(page) : added login page
+    [Feat] : 로그인 페이지를 추가하였습니다.
+    로그인 페이지 추가
+
+git push 원격저장명 브랜치명 - 원격저장소에 로컬저장소에 있는 커밋 내역을 푸쉬
+* 분기점, 프랜치
+    병렬 개발이 가능하게 한다
+    한 분기를 기준으로 여러 분기(갈래길)로 나누어 버전 컨트롤을 용이하게 한다
+
+--- init 파일이 생성
+--- 개발자마다 스프린트의 테스크가 주어짐 -> 최초 생성된 main branch에 바로 push하면 될까요? => x
+--- why?
+1. main이 실제 사용자가 있는 서비스 중인 프로덕트 -> 충분한 테스팅이 필요
+2. 버전 커트롤이 힘들어지고, 잦은 코드의 충돌이 생길 수 밖에 없음, 이전 버전의 초기화
+--- 해결책?
+1. 분기점 생성 (staging, dev, feat/login, feat/post, ...) - 카피본
+
+분기점도 생성했고, 개발도 완료되었음 --> 브랜치를 합쳐야함 -> merge
+-- pr(pull request) -> 개발이 완료되었으니, 이런 부분을 리뷰해주시고, 완벽하면 승인, 아니면 코멘트
+-- fixed -> request -> approve -> merge 
+
+git merge 합칠 브랜치명
+(feat/login --> main/dev) = 개발 완료
+
+--- 실습 내용
+
+1. 개인 레퍼지토리에 올리기 (commit, push)
+2. 오거나이제이션 올려서 협업 하기 (review, merge)
+
+--------
+
+git clone 레퍼지토리 주소
+- 기존에 있는 레퍼지토리의 파일을 전부 다운 받고, 원격 저장소 연결까지 모두 자동
+(init -x, remote -x, 단 push할 때는 해당 레퍼지토리에 권한이 있어야함)
