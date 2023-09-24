@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        transition: all 2s;
+      }
+      /* class 명을 추가하여  */
+      .on {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div>안녕하세요 반갑습니다.</div>
+    <button class="change-text-btn">텍스트 변경</button>
+    <button class="change-color-btn">글자 색상 변경</button>
+    <button class="add-class-btn">클래스 추가</button>
+    <script>
+      const div = document.getElementsByTagName("div");
+      const $changeTextBtn = document.querySelector(".change-text-btn");
+      const $changeColorBtn = document.querySelector(".change-color-btn");
+      const $addClassBtn = document.querySelector(".add-class-btn");
+
+      $changeTextBtn.addEventListener("click", () => {
+        div[0].innerText = "텍스트가 변경되었습니다.";
+      });
+      $changeColorBtn.addEventListener("click", () => {
+        div[0].style.color = "#f00";
+      });
+
+      $addClassBtn.addEventListener("click", () => {
+        if (div[0].classList.contains("on")) {
+          return div[0].classList.remove("on");
+        }
+        div[0].classList.add("on");
+      });
+    </script>
+  </body>
+</html>

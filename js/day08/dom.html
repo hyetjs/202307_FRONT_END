@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--근래에는 상단에 defer나 async 속성을 통해 호출 -->
+    <script defer src="./script.js"></script>
+    <script>
+      // domapi를 상단에서 호출하기 위해서 사용하는 것이 아니라,
+      // 실제 onload 되었을 때 작동해야하는 함수를 위해 사용되어야 한다.
+      window.onload = function () {
+        const div3 = document.getElementById("id");
+        console.log(div3);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="id"></div>
+    <div class="class"></div>
+    <!-- 이전에는 최하단에 dom-api 호출 했다면 -->
+    <script>
+      const div2 = document.getElementById("id");
+      console.log(div2);
+    </script>
+  </body>
+</html>

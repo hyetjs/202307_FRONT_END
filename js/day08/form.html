@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h2>로그인</h2>
+      <p><input type="text" name="user-email" id="" /></p>
+      <p><input type="text" name="user-pw" id="" /></p>
+      <button class="login-btn">로그인</button>
+      <!-- onclick="onClickLogin()-->
+    </div>
+    <script>
+      const $userEmail = document.getElementsByName("user-email");
+      const $userPassword = document.querySelector("[name=user-pw]");
+      const $loginBtn = document.querySelector(".login-btn");
+
+      console.log($userEmail[0], $userPassword);
+
+      // event
+      /*
+      1. html 요소의 onClick 속성
+      2. dom select의 properites onClick 속성
+      => event target을 찾기가 힘들다.
+      => this를 활용할 순 있지만, 같은 html 파일 안에 있어야한다
+
+      3. * addEventListner 
+      */
+      //   function onClickLogin(){
+      //     console.log($userEmail[0].value, $userPassword.value)
+      //   }
+      //   $loginBtn[0].onclick = onClickLogin
+      $loginBtn.addEventListener("click", (e) => {
+        console.log(e.target);
+        e.target.innerText = "로그인 완료";
+        console.log($userEmail[0].value, $userPassword.value);
+      });
+    </script>
+  </body>
+</html>
