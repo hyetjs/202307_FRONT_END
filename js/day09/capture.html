@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body * {
+        margin: 10px;
+        border: 1px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      FORM
+      <div>
+        DIV
+        <p>P</p>
+      </div>
+    </form>
+    <script>
+      const els = document.querySelectorAll("*");
+      for (let el of els) {
+        // 버블링이란 자식을 클릭했을 때 부모로 이벤트가 전파
+        el.addEventListener("click", (e) => {
+          e.stopImmediatePropagation();
+          // 버블링 제어 
+          alert(el.tagName);
+        },true);
+      }
+    </script>
+  </body>
+</html>
