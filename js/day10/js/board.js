@@ -47,8 +47,7 @@ const renderPost = (post) => {
   $article.className = "board-card";
   $article.setAttribute("data-role", post.id);
 
- 
-  $article.addEventListener("click",detailPost)
+  $article.addEventListener("click", detailPost);
 
   // 상세 조회 -> find, attribute, innerText
   // 수정 -> input으로 요소를 바꿔주고 완료 버튼을 누르면 input의 value로 업데이트
@@ -58,106 +57,67 @@ const renderPost = (post) => {
   $boradList.append($article);
 };
 
-const $boardDetail = document.querySelector(".board-detail");
+// 필요한 부분을 가져온다
 const $detailContent = document.querySelector(".board-detail>div");
 const $detailTitle = document.querySelector(".board-detail>p");
 const $updateBtn = document.querySelector(".board-detail>button");
+
 const detailPost = (event) => {
   console.log(event.target);
-    const postId = event.target.getAttribute("data-role");
-    const detailPost = MockPosts.find((post) => post.id === parseInt(postId));
-    $detailTitle.innerText = detailPost.title;
-    $detailContent.innerText = detailPost.content;
+  const postId = event.target.getAttribute("data-role");
+  const detailPost = MockPosts.find((post) => post.id === parseInt(postId));
+  $detailTitle.innerText = detailPost.title;
+  $detailContent.innerText = detailPost.content;
 
-
-//     $updateBtn.addEventListener("click",()=>{
-//       const $input = document.createElement('input');
-//       const $textarea = document.createElement('textarea');
-    
-//       // input 요소를 p 요소의 자리에 추가
-//       $detailTitle.replaceWith($input);
-//       $detailContent.replaceWith($textarea)
-//       // input 요소에 포커스 주기
-//       $input.focus();
-//       $input.placeholder=`${detailPost.title}`
-//       $textarea.placeholder=`${detailPost.content}`
-    
-//       $input.addEventListener('blur', () => {
-//         // 변경된 값 가져오기
-//         const updatedText = $input.value;
-//         console.log(updatedText)
-//         MockPosts.title = updatedText;
-        
-//       })
-//     })
-$updateBtn.addEventListener("click", () => {
-  const $inputTitle = document.createElement("input");
-  $inputTitle.value = $detailTitle.innerText;
-
-  const $inputContent = document.createElement("textarea");
-  $inputContent.value = $detailContent.innerText;
-
-  $updateBtn.innerText = "수정완료";
-  $detailTitle.replaceWith($inputTitle);
-  $detailContent.replaceWith($inputContent);
-
+  // 위에가 상세조회부분 , 해당 글 수정 눌렀을때 함수 시작
   $updateBtn.addEventListener("click", () => {
 
-    const updatedTitle = $inputTitle.value;
-    const updatedContent = $inputContent.value;
-  })
+    //input으로 바꿔주기위해 input요소 생성(제목(title)부분)
+    //placeholder로 원래 글 보여주고싶어서 
+    const $inputTitle = document.createElement("input");
+    $inputTitle.placeholder = $detailTitle.innerText;
+    //textarea로 바꿔주기위해 input요소 생성(내용(content)부분)
+    const $inputContent = document.createElement("textarea");
+    $inputContent.placeholder = $detailContent.innerText;
+    //수정 눌렀을때 버튼 텍스트 바꿔주고싶어서 
+    $updateBtn.innerText = "수정완료";
+    //replaceWith라는 함수를 사용해 요소를 바꿔준다
+    $detailTitle.replaceWith($inputTitle);
+    $detailContent.replaceWith($inputContent);
+    // 수정완료를 눌렀을 때 변화할 기능 추가 함수 시작
+    $updateBtn.addEventListener("click", () => {
+      // 새로 입력받은 값을 넣은 변수를 생성한다
+      const updatedTitle = $inputTitle.value;
+      const updatedContent = $inputContent.value;
+      // input태그와 textarea태그를 다시 글로 보이게 하기위해 p,div태그 생성하고
+      // 새로 입력받은 값을 넣어 다시 요소를 변경한다
+      const $updatedDetailTitle = document.createElement("p");
+      $updatedDetailTitle.innerText = updatedTitle;
+      $inputTitle.replaceWith($updatedDetailTitle);
 
+      const $updatedDetailContent = document.createElement("div");
+      $updatedDetailContent.innerText = updatedContent;
+      $inputContent.replaceWith($updatedDetailContent);
 
+      $updateBtn.innerText = "수정";
 
+      // 목록에도 수정한 글로 보이게 변경 후 보이게해준다
+      const updatedPostIndex = MockPosts.findIndex(
+        (post) => post.id === parseInt(postId)
+      );
+      console.log(updatedPostIndex);
+      MockPosts[updatedPostIndex].title = updatedTitle;
+      MockPosts[updatedPostIndex].content = updatedContent;
 
-  const updatedPostIndex = MockPosts.findIndex((post) => post.id === parseInt(postId));
-
-  // 업데이트된 제목과 내용으로 MockPosts 배열 업데이트
-  MockPosts[updatedPostIndex].title = updatedTitle;
-  MockPosts[updatedPostIndex].content = updatedContent;
-
-  // 업데이트된 포스트 목록을 다시 렌더링
-  $boradList.innerHTML = "";
-  for (let post of MockPosts) {
-    renderPost({
-      ...post,
+      $boradList.innerHTML = "";
+      for (let post of MockPosts) {
+        renderPost({
+          ...post,
+        });
+      }
     });
-  }
-
-  // 수정 완료 후 제목과 내용을 다시 보이기
-  $detailTitle.style.display = "block";
-  $detailContent.style.display = "block";
-
-  // input과 textarea 숨기기
-  $input.style.display = "none";
-  $textarea.style.display = "none";
-});
-
-
-
-
-}
-
-// $updateBtn.addEventListener("click",()=>{
-//   const $input = document.createElement('input');
-//   const $textarea = document.createElement('textarea');
-
-
-
-//   // input 요소를 p 요소의 자리에 추가
-//   $detailTitle.replaceWith($input);
-//   $detailContent.replaceWith($textarea)
-//   // input 요소에 포커스 주기
-//   $input.focus();
-//   $input.placeholder=`${detailPost.title}`
-//   $textarea.placeholder=`${detailPost.content}`
-
-//   $input.addEventListener('blur', () => {
-//     // 변경된 값 가져오기
-//     const updatedText = $input.value;
-//     console.log(updatedText)
-//   })
-// })
+  });
+};
 
 const deletePost = (event) => {
   console.log(event.target);
@@ -238,5 +198,3 @@ $writeBtn.addEventListener("click", () => {
   $title.value = "";
   $content.value = "";
 });
-
-// 삭제
