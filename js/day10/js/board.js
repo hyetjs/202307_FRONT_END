@@ -58,66 +58,78 @@ const renderPost = (post) => {
 };
 
 // 필요한 부분을 가져온다
-const $detailContent = document.querySelector(".board-detail>div");
-const $detailTitle = document.querySelector(".board-detail>p");
+let $detailContent = document.querySelector(".board-detail>div");
+let $detailTitle = document.querySelector(".board-detail>p");
 const $updateBtn = document.querySelector(".board-detail>button");
+let selectedPostId;
 
+// 상세조회 함수
 const detailPost = (event) => {
-  console.log(event.target);
-  const postId = event.target.getAttribute("data-role");
+  const postId = event.currentTarget.getAttribute("data-role");
+  selectedPostId = postId;
   const detailPost = MockPosts.find((post) => post.id === parseInt(postId));
   $detailTitle.innerText = detailPost.title;
   $detailContent.innerText = detailPost.content;
-
-  // 위에가 상세조회부분 , 해당 글 수정 눌렀을때 함수 시작
-  $updateBtn.addEventListener("click", () => {
-
-    //input으로 바꿔주기위해 input요소 생성(제목(title)부분)
-    //placeholder로 원래 글 보여주고싶어서 
-    const $inputTitle = document.createElement("input");
-    $inputTitle.placeholder = $detailTitle.innerText;
-    //textarea로 바꿔주기위해 input요소 생성(내용(content)부분)
-    const $inputContent = document.createElement("textarea");
-    $inputContent.placeholder = $detailContent.innerText;
-    //수정 눌렀을때 버튼 텍스트 바꿔주고싶어서 
-    $updateBtn.innerText = "수정완료";
-    //replaceWith라는 함수를 사용해 요소를 바꿔준다
-    $detailTitle.replaceWith($inputTitle);
-    $detailContent.replaceWith($inputContent);
-    // 수정완료를 눌렀을 때 변화할 기능 추가 함수 시작
-    $updateBtn.addEventListener("click", () => {
-      // 새로 입력받은 값을 넣은 변수를 생성한다
-      const updatedTitle = $inputTitle.value;
-      const updatedContent = $inputContent.value;
-      // input태그와 textarea태그를 다시 글로 보이게 하기위해 p,div태그 생성하고
-      // 새로 입력받은 값을 넣어 다시 요소를 변경한다
-      const $updatedDetailTitle = document.createElement("p");
-      $updatedDetailTitle.innerText = updatedTitle;
-      $inputTitle.replaceWith($updatedDetailTitle);
-
-      const $updatedDetailContent = document.createElement("div");
-      $updatedDetailContent.innerText = updatedContent;
-      $inputContent.replaceWith($updatedDetailContent);
-
-      $updateBtn.innerText = "수정";
-
-      // 목록에도 수정한 글로 보이게 변경 후 보이게해준다
-      const updatedPostIndex = MockPosts.findIndex(
-        (post) => post.id === parseInt(postId)
-      );
-      console.log(updatedPostIndex);
-      MockPosts[updatedPostIndex].title = updatedTitle;
-      MockPosts[updatedPostIndex].content = updatedContent;
-
-      $boradList.innerHTML = "";
-      for (let post of MockPosts) {
-        renderPost({
-          ...post,
-        });
-      }
-    });
-  });
 };
+
+let $inputTitle = document.createElement("input");
+let $inputContent = document.createElement("textarea");
+
+// 수정 (상세보기 값이 수정받을 값을 받을 input태그로 변환)
+function editText() {
+  if (!selectedPostId) return alert("선택된 게시글이 없습니다");
+
+  $inputTitle.placeholder = $detailTitle.innerText;
+  $inputContent.placeholder = $detailContent.innerText;
+
+  $updateBtn.innerText = "수정완료";
+
+  $detailTitle.replaceWith($inputTitle);
+  $detailContent.replaceWith($inputContent);
+
+  $updateBtn.removeEventListener("click", editText);
+  $updateBtn.addEventListener("click", updateComplete);
+}
+
+// 수정 완료 (수정버튼을 한번더 눌렀을 때 일어나는 기능(함수))
+// 수정된 값이 글로 보이게 바꿔준다
+function updateComplete() {
+  const updatedTitle = $inputTitle.value;
+  const updatedContent = $inputContent.value;
+
+  const $updatedDetailTitle = document.createElement("p");
+  $updatedDetailTitle.innerText = updatedTitle;
+  $inputTitle.replaceWith($updatedDetailTitle);
+
+  const $updatedDetailContent = document.createElement("div");
+  $updatedDetailContent.innerText = updatedContent;
+  $inputContent.replaceWith($updatedDetailContent);
+
+  $updateBtn.innerText = "수정";
+
+  // $detailTitle,$detailContent에 수정된 내용을 다시 대입
+  // 다시 값을 넣어주지 않으면 수정완료 후에 다른 목록을 눌러도 상세보기 값이 계속 수정 마지막 값으로 되어있다
+  $detailTitle = $updatedDetailTitle;
+  $detailContent = $updatedDetailContent;
+
+  const updatedPostIndex = MockPosts.findIndex(
+    (post) => post.id === parseInt(selectedPostId)
+  );
+
+  MockPosts[updatedPostIndex].title = updatedTitle;
+  MockPosts[updatedPostIndex].content = updatedContent;
+
+  $boradList.innerHTML = "";
+  for (let post of MockPosts) {
+    renderPost({
+      ...post,
+    });
+  }
+  $updateBtn.removeEventListener("click", updateComplete);
+  $updateBtn.addEventListener("click", editText);
+}
+
+$updateBtn.addEventListener("click", editText);
 
 const deletePost = (event) => {
   console.log(event.target);
