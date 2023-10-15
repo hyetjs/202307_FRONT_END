@@ -1,0 +1,164 @@
+bundle (묶음)
+    -> 너저분하게 분리되어있는 리소스들을 특정 기준에 따라 분류
+    연산 시간이 줄어들어 랜더링 비용을 감소
+    특히 사용되지 않는 라이브러리의 코드를 사용자가 다운로드 받지 않게하여 랜더링 비용을 감소
+
+webpack
+    -> cra에서 사용하고 있는 bundler, 모듈 단위의 개발이 가능
+    loader를 통해 js안에서도 html과 같은 문법을 사용할 수 있게 해줌
+
+-----------------------------------------------------------------------------------
+
+babel (트랜스파일러)
+    -> 고급,저급
+
+    ES6 모던 자바스크립트
+
+    최신 문법을 이해하지 못하는 웹 브라우저 버전들이 존재
+    해당 브라우저에 존재하는 브라우저 로더가 이전 버전의 문법을 
+    이해할 수 있도록 저레벨의 문법으로 변환하는 것
+
+    => 옛날 버전 브라우저가 최신 문법 이해할 수 있도록 변환
+
+    @babel/core : 핵심
+    @babel/cli : 바벨 실행 할 수 있도록 
+    @babel/preset-env : 바벨의 기본 설정
+    @babel/preset-react : react가 갖고있는 JSX문법을 이해할 수 있도록 트랜스파일
+
+-----------------------------------------------------------------------------------
+
+리액트의 폴더 구조
+
+1. Container/Presentational 폴더 구조
+    2019년 이전에 많이 사용한 폴더 구조
+    훅 함수가 등장한 이후로 사용하지 말라고 창안자가 직접 언급
+    Dan Abramov(redux, react core)
+
+    pages
+        board
+            container.js (logic)
+            persenter.js (view)
+    
+    그러나 next-js에서 server-aciotn을 시도하기 시작하면서 
+    다시금 사용하이 종종 보이는 패턴
+
+2. Hooks 폴더 구조
+
+    최근에 가장 많이 사용하는 방식 
+
+    components -- 모든 페이지에서 재사용 가능한 컴포넌트
+    hooks -- 재사용되는 리액트 관련 함수 
+    pages -- 현재 프로젝트에 있는 모든 페이지들을 한 눈에(domain)
+        board
+            components -- 현재 페이지 내에서만 재사용 되는 컴포넌트 
+            hooks -- 현재 페이지 내에서만...
+            ...
+        main(home)
+        sing-in
+        sign-up (www.naver.com/sign-up)
+        ...
+    utils
+    libs
+    app.js
+
+3. Atomic 폴더 구조
+
+    이론 상으로 가장 완벽한 패턴, 재사용이 용이한 패턴
+    atomic(원자)단위로 쪼개서 더이상 분리할 수 없게끔
+
+    atomic : 더이상 쪼갤 단위가 없는 컴포넌트 
+    molecules : 여러개의 atom이 모여 목적성이 있는 컴포넌트
+    organisms : 여러개의 molecules가 모여 하나의 기능을 하는 UI
+    templates : 여러개의 organisms이 모여 하나의 프레임
+    pages : 모든 atomic들의 완성본 
+
+
+    etc)
+    폴더 아키텍쳐는 정해져 있다 정해져있지 않아?
+    안 정해져 있습니다.
+
+    config 
+    shared 
+    core
+    features -> domins --> (apps, pages)
+    libs
+
+-----------------------------------------------------------------------------------
+
+    todo-list(할 일 목록) - crud를 위한 가장 기초적인 리엑트 프로젝트
+    1. 강의 - 개념 이해x - 질문 - 이해 (o)
+    2. 사설 강의 - 개념 이해
+        - 순서를 필기하세요
+
+    3. 보고 만들어봅니다.
+    4. 안보고 만들어봅니다.
+    5. 바꾸어 만들어봅니다. 
+
+    폴더 구조  
+    src
+        components
+            Button.js
+        layouts
+            Footer.js
+            Header.js
+            Layout.js
+        pages
+            Home
+                components
+                    SignInForm. js
+                    SignUpForm.is
+                index.is
+            Todo 
+                components
+                    AddTodoModal.js
+                    TodoList.js(수업에 필요한 컴포넌트)
+                OneTodo.js
+        routes 
+            routing.js
+        styles
+            common.js - 공용 css
+            glboal.js - 전역 css
+            theme.js - 디자인 토큰 (색상 등과 같은 디자인 관련된 요소를 변수)
+         app.js
+        index.is
+
+-----------------------------------------------------------------------------------
+
+todolist - publishing
+hookstodo -- hooks function
+reducertodo -- userReducer, useContext, DI
+-- react 기본 --
+
+reduxtodo -- redux (전역 상태 관리 라이브러리)
+rtktodo -- redux-tool-kit, msw(mocking api), redux-thunk
+-- react 활용 --
+
+node.js
+
+axiostodo --관심사 분리, data patching, error handling, auth
+recoiltodo -- recoil, react-query, suspense, errorbounday, storybook
+-- react 심화 --
+
+typescript
+
+typetodo
+
+-----------------------------------------------------------------------------------
+
+react-router-dom(라이브러리)
+
+    pm i react-router-dom
+    router : 네트워크 데이터를 전송 (소포)
+
+    => react에서 dom을 전달하기 위해 사용하는 소포
+    => 주소에 따라 어떤 DON을 보여줄지 결정하는 라이브러리
+
+-----------------------------------------------------------------------------------
+
+url parameter
+todolist - publishing(종료)
+styled - componentsm === emotion (css-in-js)
+
+hooks
+(usestate, useRef, useEffect, useMemo, useCallback, React.memo)
+hookstodo
