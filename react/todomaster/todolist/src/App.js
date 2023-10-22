@@ -1,6 +1,7 @@
-import {RouterProvider} from "react-router-dom";
-
+import { RouterProvider } from "react-router-dom";
 import zl존성용123 from "./routes/route"; // export default 되어있는 값이 import 사용
+import { ThemeProvider } from "styled-components";
+import theme from "./styles/theme";
 // 기본 값으로 내보낸 값이기 때문에, 내보낼 때부터 값이 누구인지 정의, import명을 마음대로
 // export default router
 
@@ -9,8 +10,10 @@ import zl존성용123 from "./routes/route"; // export default 되어있는 값�
 
 function App() {
   return (
-    <RouterProvider router={zl존성용123} />
-  )
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={zl존성용123} />
+    </ThemeProvider>
+  );
   /*
     v5
     <Routes>
@@ -18,6 +21,5 @@ function App() {
       <Route />
     </Routes>
   */
-  
 }
 export default App;
