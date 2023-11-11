@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "../../../../../TIL"
+    },
+    {
+      "path": "../../../.."
+    },
+    {
+      "path": "../../../../../Desktop/test"
+    },
+    {
+      "path": "../../../../../Downloads/자기소개서"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "TIL"
+  }
+}

@@ -45,7 +45,7 @@ console.log(count + 2); // 5
 // reject 실패했다
 new Promise((resolve, reject) => {
   setTimeout(() => {
-    count = 5;
+    count = 4;
     if (count !== 5) {
       reject("count가 5가 아닙니다"); // catch method
     }

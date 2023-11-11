@@ -26,19 +26,19 @@ const MainPage = () => {
   };
 
   return (
-    <Wrapper>
-      <Container>
-        <Header>
+    <Styeld.Wrapper>
+      <Styeld.Container>
+        <Styeld.Header>
           {tabsArray.map(({ isSelected, title }) => (
-            <Tab $isSelected={isSelected} Click={() => onClickTab(title)}>
+            <Styeld.Tab $isSelected={isSelected} onClick={() => onClickTab(title)}>
               {title}
-            </Tab>
+            </Styeld.Tab>
           ))}
-        </Header>
+        </Styeld.Header>
         {/** import 된 component는 반드시 태그 형태를 띄워야한다. 속성을 통해 props 전달 가능 */}
-        <SignForm signFormState={signFormState} />
-      </Container>
-    </Wrapper>
+        <SignForm isFromLogin={signFormState === 'SIGN-IN'} />
+      </Styeld.Container>
+    </Styeld.Wrapper>
   );
 };
 export default MainPage;
@@ -49,7 +49,6 @@ const Wrapper = styled.div`
   padding-bottom: 60px;
   ${flexCenter}
   flex-direction: column;
-  font-family: 'intelone-mono-font-family-regular';
 `;
 
 const Container = styled.h1`
@@ -68,9 +67,16 @@ const Tab = styled.div`
   // 자바스크립트 변수 사용을 위해 $를 감싸고 내부에 콜백함수
   // 스타일드 컴포넌트의 콜백함수에는 스타일드 컴포넌트에 전달된 값을 인자로 받아올 수 있다
   background-color: ${({ $isSelected }) => $isSelected && "#e0e0e0"};
-  margin-top:8px ;
   ${flexCenter}
   &:hover {
     background-color: #e0e0e0;
   }
 `;
+
+// Styled Components와 일반 Components를 구분하기 위해 객체 선언
+const Styeld = {
+  Wrapper,
+  Container,
+  Header,
+  Tab
+}

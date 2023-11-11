@@ -7,7 +7,9 @@ const FormInput = ({ label, containerStyle, ...inputProps }) => {
 
   return (
     <Wrapper style={containerStyle}>
-      <Label>{label}</Label>
+      <Label>
+        {label}
+      </Label>
       <Input {...inputProps} />
     </Wrapper>
   );

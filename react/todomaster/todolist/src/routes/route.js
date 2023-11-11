@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import RootLayout from "../layouts/layout";
 import MainPage from "../pages/main";
 import Todopage from "../pages/todo";
 
@@ -8,17 +9,31 @@ import Todopage from "../pages/todo";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainPage/>,
+    element: <RootLayout />,
+    children: [
+      {
+        path: "",
+        element: <MainPage />,
+      },
+      {
+        // "/todo/3" --> 3 -> todoId
+        path: "/todo/:todoId",
+        element: <Todopage />,
+      },
+      {
+        path: "/mypage",
+        // element: <HeaderLayout/>
+      },
+    ],
   },
-  {
-    // "/todo/3" --> 3 -> todoId
-    path: "/todo/:todoId",
-    element: <Todopage/>
-  }
+  // {
+  //   path: "/mypage",
+  //   // element: <HeaderLayout/>
+  // },
 ]);
 
 // 2. export default router(어떤 값을 내보낼 것 인지)
-export default router
+export default router;
 
 // 내보내는 타입이 객체인가 값인가의 차이가 존재함
 
